@@ -11,11 +11,11 @@
 
 ## B. Deskripsi Aplikasi
 
-Aplikasi Dapur Medan merupakan aplikasi berbasis Flutter yang dibuat untuk menampilkan informasi usaha kuliner khas Medan. Aplikasi ini menyediakan informasi profil usaha, deskripsi, alamat, nomor telepon, dan email.
+Aplikasi **Dapur Medan** merupakan aplikasi berbasis Flutter yang dibuat untuk menampilkan informasi usaha kuliner khas Medan. Aplikasi ini menyediakan profil usaha, deskripsi, alamat, nomor telepon, dan email.
 
-Aplikasi memiliki dua kategori menu, yaitu makanan dan minuman. Kategori makanan terdiri dari Nasi Goreng Medan, Mie Gomak, Soto Medan, Bika Ambon, Lontong Medan, Mie Sop, Mie Balap, dan Nasi Campur Medan. Kategori minuman terdiri dari Teh Manis Dingin, Kopi Sidikalang, Es Campur, Es Teler, dan Bandrek.
+Aplikasi memiliki dua kategori menu, yaitu makanan dan minuman. Kategori makanan terdiri dari Nasi Goreng Medan, Mie Gomak, Soto Medan, Bika Ambon, Lontong Medan, Mie Sop, Mie Balap, dan Nasi Campur Medan. Sementara itu, kategori minuman terdiri dari Teh Manis Dingin, Kopi Sidikalang, Es Campur, Es Teler, dan Bandrek.
 
-Setiap menu ditampilkan menggunakan widget `KartuMenu` yang dibuat dengan StatelessWidget. Aplikasi juga menyediakan fitur favorit menggunakan StatefulWidget sehingga pengguna dapat menambahkan atau menghapus menu dari daftar favorit. Ketika tombol favorit ditekan, aplikasi menampilkan pemberitahuan menggunakan SnackBar.
+Setiap menu ditampilkan menggunakan widget `KartuMenu` yang dibuat dengan `StatelessWidget`. Aplikasi juga menyediakan fitur favorit menggunakan `StatefulWidget`, sehingga pengguna dapat menambahkan atau menghapus menu dari daftar favorit. Ketika tombol favorit ditekan, aplikasi menampilkan pemberitahuan menggunakan `SnackBar`.
 
 Tampilan aplikasi menggunakan Material Design 3 dengan tema terang dan gelap. Pengguna dapat mengganti tema secara langsung melalui tombol pada AppBar. Aplikasi ini dibuat untuk menerapkan penggunaan widget Flutter, pengelolaan state sederhana, serta pengaturan tema dalam pengembangan aplikasi mobile.
 
@@ -36,15 +36,15 @@ Melalui aplikasi ini, pengguna dapat mengenal berbagai pilihan kuliner khas Meda
 
 ### 1. Mode Terang
 
-Simpan screenshot mode terang dengan nama:
+Berikut tampilan aplikasi Dapur Medan dalam mode terang.
 
-`screenshots/mode-terang.png`
+![Screenshot Mode Terang](screenshot/mode-terang.png)
 
 ### 2. Mode Gelap
 
-Simpan screenshot mode gelap dengan nama:
+Berikut tampilan aplikasi Dapur Medan dalam mode gelap.
 
-`screenshots/mode-gelap.png`
+![Screenshot Mode Gelap](screenshot/mode-gelap.png)
 
 ## E. Widget Tree
 
@@ -53,7 +53,7 @@ UmkmKulinerApp (StatefulWidget)
 └── MaterialApp
     ├── ThemeData (Light)
     ├── DarkTheme
-    └── HalamanUtama (StatelessWidget)
+    └── HalamanUtama
         └── Scaffold
             ├── AppBar
             │   ├── IconButton (Theme)
@@ -86,7 +86,7 @@ KartuMenu (StatelessWidget)
 
 ## F. Pengujian Aplikasi
 
-Pengujian dilakukan menggunakan perintah:
+Pengujian dilakukan menggunakan perintah berikut:
 
 ```bash
 dart format .
@@ -95,9 +95,10 @@ flutter test
 ```
 
 Hasil pengujian:
-- Dart Format: berhasil.
-- Flutter Analyze: No issues found.
-- Flutter Test: All tests passed.
+
+- **Dart Format:** Berhasil.
+- **Flutter Analyze:** No issues found.
+- **Flutter Test:** All tests passed.
 
 ## G. Teknologi yang Digunakan
 
@@ -111,5 +112,3 @@ Hasil pengujian:
 ## H. Pernyataan Penggunaan AI
 
 Dalam pengerjaan tugas ini, AI digunakan sebagai alat bantu untuk memahami konsep Flutter, membantu penyusunan dan perbaikan kode program, serta memberikan panduan dalam proses pengujian dan dokumentasi aplikasi. Seluruh kode dan hasil aplikasi diperiksa dan dijalankan kembali oleh mahasiswa.
-
----
