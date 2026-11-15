@@ -11,53 +11,43 @@
 
 ## B. Deskripsi Aplikasi
 
-Aplikasi **Dapur Medan** merupakan aplikasi berbasis Flutter yang dibuat untuk menampilkan informasi usaha kuliner khas Medan. Aplikasi ini menyediakan profil usaha, deskripsi, alamat, nomor telepon, dan email.
+**Dapur Medan** merupakan aplikasi berbasis Flutter yang dibuat untuk menampilkan informasi usaha kuliner khas Medan. Aplikasi ini menyediakan profil usaha, deskripsi, alamat, nomor telepon, dan email.
 
 Aplikasi memiliki dua kategori menu, yaitu makanan dan minuman. Kategori makanan terdiri dari Nasi Goreng Medan, Mie Gomak, Soto Medan, Bika Ambon, Lontong Medan, Mie Sop, Mie Balap, dan Nasi Campur Medan. Sementara itu, kategori minuman terdiri dari Teh Manis Dingin, Kopi Sidikalang, Es Campur, Es Teler, dan Bandrek.
 
-Setiap menu ditampilkan menggunakan widget `KartuMenu` yang dibuat dengan `StatelessWidget`. Aplikasi juga menyediakan fitur favorit menggunakan `StatefulWidget`, sehingga pengguna dapat menambahkan atau menghapus menu dari daftar favorit. Ketika tombol favorit ditekan, aplikasi menampilkan pemberitahuan menggunakan `SnackBar`.
+Aplikasi menyediakan fitur favorit untuk menambahkan atau menghapus menu dari daftar favorit. Selain itu, pengguna dapat mengganti tampilan aplikasi antara mode terang dan mode gelap.
 
-Tampilan aplikasi menggunakan Material Design 3 dengan tema terang dan gelap. Pengguna dapat mengganti tema secara langsung melalui tombol pada AppBar. Aplikasi ini dibuat untuk menerapkan penggunaan widget Flutter, pengelolaan state sederhana, serta pengaturan tema dalam pengembangan aplikasi mobile.
-
-Melalui aplikasi ini, pengguna dapat mengenal berbagai pilihan kuliner khas Medan dalam satu tampilan yang sederhana dan mudah digunakan. Pengembangan aplikasi juga menerapkan pemisahan widget agar kode lebih terstruktur, mudah dipahami, dan dapat dikembangkan kembali sesuai kebutuhan usaha.
-
-## C. Fitur Aplikasi
-
-1. Menampilkan profil UMKM Dapur Medan.
-2. Menampilkan informasi alamat, telepon, dan email.
-3. Menampilkan 8 menu makanan khas Medan.
-4. Menampilkan 5 menu minuman.
-5. Menambahkan dan menghapus menu favorit.
-6. Menampilkan SnackBar ketika tombol favorit ditekan.
-7. Menggunakan Material Design 3.
-8. Mendukung mode terang dan mode gelap.
-
-## D. Screenshot Aplikasi
+## C. Screenshot Aplikasi
 
 ### 1. Mode Terang
 
-Berikut tampilan aplikasi Dapur Medan dalam mode terang.
+Berikut merupakan tampilan aplikasi Dapur Medan menggunakan tema terang (Light Mode).
 
 ![Screenshot Mode Terang](screenshot/mode-terang.png)
 
 ### 2. Mode Gelap
 
-Berikut tampilan aplikasi Dapur Medan dalam mode gelap.
+Berikut merupakan tampilan aplikasi Dapur Medan menggunakan tema gelap (Dark Mode).
 
 ![Screenshot Mode Gelap](screenshot/mode-gelap.png)
 
-## E. Widget Tree
+## D. Diagram Widget Tree
+
+Berikut merupakan struktur Widget Tree aplikasi Dapur Medan. Penanda menunjukkan widget yang menggunakan StatelessWidget dan StatefulWidget.
 
 ```text
 UmkmKulinerApp (StatefulWidget)
+│
 └── MaterialApp
     ├── ThemeData (Light)
-    ├── DarkTheme
+    ├── ThemeData (Dark)
+    │
     └── HalamanUtama
         └── Scaffold
             ├── AppBar
-            │   ├── IconButton (Theme)
+            │   ├── IconButton (Ganti Tema)
             │   └── IconButton (Informasi)
+            │
             └── SingleChildScrollView
                 └── Column
                     ├── Image.network
@@ -65,10 +55,13 @@ UmkmKulinerApp (StatefulWidget)
                     ├── Wrap (Chip)
                     ├── Card (Informasi Usaha)
                     │   └── ListTile
+                    │
                     ├── Text (Menu Makanan)
-                    ├── KartuMenu x 8
+                    ├── KartuMenu x 8 (StatelessWidget)
+                    │
                     ├── Text (Menu Minuman)
-                    ├── KartuMenu x 5
+                    ├── KartuMenu x 5 (StatelessWidget)
+                    │
                     └── Buttons
                         ├── FilledButton
                         ├── OutlinedButton
@@ -82,11 +75,28 @@ KartuMenu (StatelessWidget)
         └── TombolFavorit (StatefulWidget)
             └── IconButton
                 └── SnackBar
+
+Keterangan:
+- StatefulWidget  : Widget yang memiliki state yang dapat berubah.
+- StatelessWidget : Widget yang tampilannya bergantung pada konfigurasi
+                    dan tidak mengelola state internal yang berubah.
 ```
+
+## E. Penjelasan Widget Tree, Element Tree, dan Render Tree
+
+Widget Tree merupakan struktur hierarki yang menggambarkan hubungan antarwidget dalam aplikasi Flutter. Pada aplikasi Dapur Medan, Widget Tree dimulai dari UmkmKulinerApp, kemudian MaterialApp, Scaffold, hingga widget yang menampilkan profil usaha dan daftar menu. Struktur ini membantu pengembang memahami susunan tampilan serta hubungan antara setiap komponen.
+
+Element Tree merupakan representasi widget yang menghubungkan konfigurasi widget dengan objek yang dikelola Flutter. Element berfungsi mempertahankan identitas dan posisi widget ketika terjadi perubahan state. Dengan demikian, Flutter dapat memperbarui bagian tampilan yang berubah tanpa harus membangun ulang seluruh aplikasi.
+
+Render Tree bertanggung jawab mengatur proses layout, ukuran, posisi, dan proses menggambar tampilan ke layar. Render Tree membuat setiap elemen visual dapat ditampilkan sesuai susunan yang telah ditentukan.
+
+Pada aplikasi ini, StatefulWidget digunakan pada UmkmKulinerApp karena pengguna dapat mengganti tema terang dan gelap. TombolFavorit juga menggunakan StatefulWidget karena status favorit dapat berubah ketika ditekan. Sementara itu, KartuMenu menggunakan StatelessWidget karena hanya bertugas menampilkan informasi menu yang tidak memerlukan pengelolaan state internal. Pemilihan ini membuat kode lebih terstruktur, efisien, dan mudah dikembangkan.
 
 ## F. Pengujian Aplikasi
 
-Pengujian dilakukan menggunakan perintah berikut:
+Pengujian dilakukan untuk memastikan aplikasi dapat berjalan dengan baik dan tidak memiliki kesalahan pada kode program.
+
+Perintah yang digunakan:
 
 ```bash
 dart format .
